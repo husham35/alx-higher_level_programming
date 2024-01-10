@@ -1,28 +1,27 @@
 #!/usr/bin/python3
-""" Roman to Integer test file
-"""
-roman_to_int = __import__('12-roman_to_int').roman_to_int
+def roman_to_int(roman_string):
+    if type(roman_string) != str or roman_string is None:
+        return 0
 
-roman_number = "X"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+    numerals = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    }
 
-roman_number = "VII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+    if any(c not in numerals for c in roman_string):
+        return 0
 
-roman_number = "IX"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+    rom_num = numerals[roman_string[0]]
 
-roman_number = "LXXXVII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+    for i, s in enumerate(roman_string[1:], 1):
+        if numerals[roman_string[i - 1]] < numerals[roman_string[i]]:
+            rom_num += numerals[roman_string[i]] - 2 * (numerals[roman_string[i - 1]])
+        else:
+            rom_num += numerals[s]
 
-roman_number = "DCCVII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "MMXXIII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "MCMXCIV"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "MMMCMXCIX"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+    return rom_num
