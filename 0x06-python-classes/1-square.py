@@ -6,4 +6,8 @@ class Square:
     __size = None
 
     def __init__(self, size):
+        """
+        Initialization of instance of attributes
+        Args: size (int): size of square
+        """
         self.__size = size
