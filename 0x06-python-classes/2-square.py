@@ -6,7 +6,7 @@ module definition of a class square with a private attribute
 
 class Square:
     """ class definition for square """
-    __size = None
+    # __size = None
 
     def __init__(self, size=0):
         """
