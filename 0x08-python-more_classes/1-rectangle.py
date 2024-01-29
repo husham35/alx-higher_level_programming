@@ -25,7 +25,7 @@ class Rectangle:
         Set the width of the rectangle
         :param value: (int) new width of the rectangle
         """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
@@ -43,9 +43,9 @@ class Rectangle:
         Set the height of the rectangle
         :param value: (int) new height of the rectangle
         """
-        if not type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         elif value < 0:
-            raise ValueError("height must be a >= 0")
+            raise ValueError("height must be >= 0")
         else:
             self.__height = value
