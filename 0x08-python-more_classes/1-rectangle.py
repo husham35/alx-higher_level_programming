@@ -4,8 +4,6 @@
 
 class Rectangle:
     """Rectangle class definition"""
-    __width = 0
-    __height = 0
 
     def __init__(self, width=0, height=0):
         """
@@ -13,8 +11,8 @@ class Rectangle:
         :param width: (int) width of the rectangle
         :param height: (int) height of the rectangle
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
