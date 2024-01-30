@@ -1,12 +1,14 @@
+=============================
 The ``0-add_integer`` module
-======================
+=============================
 
-Using ``add_integer``
--------------------
-
-Importing the function from the module:
+Importing the ``add_integer`` function from the module:
+======================================================
 	>>> add_integer = __import__("0-add_integer").add_integer
 
+
+Tests
+================
 *Test for regular addition:
 	 >>> add_integer(1, 3)
 	 4
