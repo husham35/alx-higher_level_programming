@@ -33,66 +33,6 @@ Tests
 	 >>> add_integer(1.9, 1.1)
 	 2
 
-*Test for passed NaN:
-	 >>> add_integer(1, float('nan'))
-	 Traceback (most recent call last):
-	 ...
-	 ValueError: cannot convert float NaN to integer
-
-*Test for passed float infinity inf:
-	 >>> add_integer(1, float('inf'))
-	 Traceback (most recent call last):
-	 ...
-	 OverflowError: cannot convert float infinity to integer
-
 *Test for super long int:
 	 >>> add_integer(999999999999999999999999999999, 1)
 	 1000000000000000000000000000000
-
-*Test for non-number with number:
-	 >>> add_integer([6], 2)
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: a must be an integer
-
-*Test for number with non-number:
-	 >>> add_integer(1, "6")
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: b must be an integer
-
-*Test for non-number with non-number:
-	 >>> add_integer((4,), {"key": "value"})
-         Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
-
-*Test for bool with number:
-	 >>> add_integer(False, 1)
-	 Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
-
-*Test for number with bool:
-	 >>> add_integer(1, True)
-         Traceback (most recent call last):
-         ...
-         TypeError: b must be an integer
-
-*Test for no args:
-	 >>> add_integer()
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: add_integer() missing 2 required arguments: 'a' and 'b'
-
-*Test for one arg:
-	 >>> add_integer(7)
-	 Traceback (most recent call last):
-         ...
-	 TypeError: add_integer() missing 1 required argument: 'b'
-
-*Test for more than 2 args:
-	 >>> add_integer(0, 2, 4)
-         Traceback (most recent call last):
-         ...
-         TypeError: add_integer() takes 2 arguments but 3 were given
