@@ -141,3 +141,8 @@ Tests
     Traceback (most recent call last):
     ...
     ValueError: cannot convert float NaN to integer
+
+
+* Pass a single integer argument
+    >>> add_integer(2)
+    100
