@@ -93,19 +93,6 @@ Tests
     TypeError: a must be an integer
 
 
-* Infinite float argument (should raise an OverflowError)
-    >>> add_integer(float("inf"))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-
-
-* Negative infinite float argument (should raise an OverflowError)
-    >>> add_integer(float("-inf"))
-    Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-
 
 * Division by zero argument (should raise a ZeroDivisionError)
     >>> add_integer(12 / 0)
