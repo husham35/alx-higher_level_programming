@@ -9,31 +9,26 @@ Importing the ``add_integer`` function from the module:
 
 Tests
 ================
-* addition of 2 regular integer numbers
-    >>> add_integer(1, 1)
-    2
+* adding 2 regular integer numbers
+    >>> add_integer(4, 2)
+    6
 
 
-* addition of 2 regular integer numbers (one negative)
-    >>> add_integer(9, -2)
-    7
+* adding 2 regular integer numbers (one negative)
+    >>> add_integer(20, -2)
+    18
 
 
-* Pass a single integer argument
-    >>> add_integer(2)
-    100
+* adding a float and a negative integer
+    >>> add_integer(20.5, -1)
+    19
 
 
-* addition of a float and a negative number
-    >>> add_integer(10.5, -1)
-    9
-
-
-* missing arguments (raise a TypeError)
+* missing argument (raise a TypeError)
     >>> add_integer()
     Traceback (most recent call last):
     ...
-    TypeError: add_integer() missing 1 required argument: 'a'
+    TypeError: add_integer() missing 1 required positional argument: 'a'
 
 
 * empty string argument (raise a TypeError)
@@ -50,14 +45,14 @@ Tests
     TypeError: a must be an integer
 
 
-* string as second parameter (raise a TypeError)
+* float argument as second parameter (raise a TypeError)
     >>> add_integer(15, "1")
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
 
 
-* `None` argument (raise a TypeError)
+* `None` as argument (raise a TypeError)
     >>> add_integer(None)
     Traceback (most recent call last):
     ...
@@ -71,7 +66,7 @@ Tests
     TypeError: a must be an integer
 
 
-* tuple with integer argument (raise a TypeError)
+* tuple with 1 integer argument (raise a TypeError)
     >>> add_integer(list(1))
     Traceback (most recent call last):
     ...
@@ -107,34 +102,34 @@ Tests
 
 
 * division by zero argument (raise a ZeroDivisionError)
-    >>> add_integer(7 / 0)
+    >>> add_integer(9 / 0)
     Traceback (most recent call last):
     ...
     ZeroDivisionError: division by zero
 
 
-* infinite float as second arguments (raise an OverflowError)
+* infinite float as second parameter (raise an OverflowError)
     >>> add_integer(1, float("-inf"))
     Traceback (most recent call last):
     ...
     OverflowError: cannot convert float infinity to integer
 
 
-* infinite float as second arguments (raise an OverflowError)
+* infinite float as second parameter (raise an OverflowError)
     >>> add_integer(1, float("inf"))
     Traceback (most recent call last):
     ...
     OverflowError: cannot convert float infinity to integer
 
 
-* two infinite floats as arguments (raise an OverflowError)
+* 2 infinite floats as parameters (raise an OverflowError)
     >>> add_integer(float("inf"), float("inf"))
     Traceback (most recent call last):
     ...
     OverflowError: cannot convert float infinity to integer
 
 
-* negative infinite and positive infinite floats as arguments (raise an OverflowError)
+* negative infinite and positive infinite floats as parameters (raise an OverflowError)
     >>> add_integer(float("-inf"), float("inf"))
     Traceback (most recent call last):
     ...
