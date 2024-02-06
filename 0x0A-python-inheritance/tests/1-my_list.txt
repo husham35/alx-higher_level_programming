@@ -13,37 +13,37 @@ Tests
 * Instantiating an object
     >>> my_list = MyList()
 
-* Print out the empty unsorted list
+* Printing out the empty unsorted list
     >>> print(my_list)
     []
 
-* Print out the empty sorted list
+* Printing out the empty sorted list
     >>> my_list.print_sorted()
     []
 
-* Append some integer items to the list object my_list
+* Appending some integer items to the list object my_list
     >>> my_list.append(1)
     >>> my_list.append(4)
     >>> my_list.append(2)
     >>> my_list.append(3)
     >>> my_list.append(5)
 
-* Print unsorted list instance
+* Printing unsorted list instance
     >>> print(my_list)
     [1, 4, 2, 3, 5]
 
-* Print sorted list using the `print_sorted()` method
+* Printing sorted list using the `print_sorted()` method
     >>> my_list.print_sorted()
     [1, 2, 3, 4, 5]
 
-* Append some negative integers
+* Appending some negative integers
     >>> my_list.append(-1)
     >>> my_list.append(-6)
 
-* Print unsorted list with newly appended negative integers
+* Printing unsorted list with newly appended negative integers
     >>> print(my_list)
     [1, 4, 2, 3, 5, -1, -6]
 
-*Print sorted list using the `print_sorted()` method
+*Printing sorted list using the `print_sorted()` method
     >>> my_list.print_sorted()
     [-6, -1, 1, 2, 3, 4, 5]
