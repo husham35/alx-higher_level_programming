@@ -13,7 +13,6 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    @property
     def to_json(self):
         """ Returns a dictionary representation of a student object """
         return self.__dict__
