@@ -74,7 +74,7 @@ class Rectangle(Base):
         self.validate_attribute('y', value)
         self.__y = value
 
-    # *************************** validator for attributes ***************************
+    # *********************** validator for attributes *******************
     @staticmethod
     def validate_attribute(name, value):
         """
