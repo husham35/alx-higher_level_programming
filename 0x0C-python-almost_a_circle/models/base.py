@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Base class to handle"""
+
 import json
 from pathlib import Path
 import csv
@@ -12,6 +13,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Initialize the Base class"""
         if id is not None:
             self.id = id
         else:
