@@ -4,7 +4,8 @@
 import json
 from pathlib import Path
 import csv
-import turtle
+# import turtle
+# import _tkinter as tk
 
 
 class Base:
