@@ -135,7 +135,7 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """
-        Draws a bunch of rectangles and squares graphically on screen.
+        Draws rectangles and squares graphically on screen.
         Args:
             list_rectangles: a list or rectangles
             list_squares: a list of squares
