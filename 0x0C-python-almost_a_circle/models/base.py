@@ -8,7 +8,11 @@ import turtle
 
 
 class Base:
-    """Base class definition"""
+    """
+    Base class definition
+    Attributes:
+        __nb_objects (int): number of objects instantiated by this class `Base`
+    """
 
     __nb_objects = 0
 
