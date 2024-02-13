@@ -4,8 +4,7 @@
 import json
 from pathlib import Path
 import csv
-# import turtle
-# import _tkinter as tk
+import turtle
 
 
 class Base:
@@ -139,7 +138,7 @@ class Base:
                 {key: int(value) for key, value in row.items()}
                 for row in reader
             ]
-            return [cls.create(**(args)) for args in reader]
+            return [cls.create(**args) for args in reader]
 
     @staticmethod
     def draw(list_rectangles, list_squares):
