@@ -10,7 +10,9 @@ from models.rectangle import Rectangle
 
 
 class TestRectangleInstantiation(unittest.TestCase):
-    """Unit tests for testing instantiation of the Rectangle class."""
+    """
+    Unit tests for instantiating the Rectangle class.
+    """
 
     def setUp(self):
         self.rect = Rectangle(5, 7, 7, 5, 1)
@@ -486,7 +488,7 @@ class TestRectangleY(unittest.TestCase):
             Rectangle(3, 5, 0, -1)
 
 
-class TestRectangeInvalidArgType(unittest.TestCase):
+class TestRectangleInvalidArgType(unittest.TestCase):
     """Unittests for testing Rectangle with wrong argument types."""
 
     def test_width_before_height(self):
@@ -552,7 +554,7 @@ class TestRectangleSTDOUT(unittest.TestCase):
 
     @staticmethod
     def read_stdout(rect, method):
-        """Reads and returns text printed to stabdard output.
+        """Reads and returns text printed to standard output.
         Args:
             rect (Rectangle): The Rectangle to print to stdout.
             method (str): The method to run on rect.
