@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-    Base Module
-"""
+"""Base class to handle"""
 
 import csv
 import json
@@ -10,11 +8,20 @@ from pathlib import Path
 
 
 class Base:
-    """Base class which will be inherited by all other classes."""
+    """
+    Base class definition
+    Attributes:
+        __nb_objects (int): number of objects instantiated by this class `Base`
+    """
 
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """
+        Initializes the Base class
+        Args:
+            id (int): id of the objects of this class
+        """
         if id is not None:
             self.id = id
         else:
@@ -22,55 +29,59 @@ class Base:
             self.id = Base.__nb_objects
 
     @staticmethod
-    def to_json_string(list_dictionaries) -> str:
-        """Serializes a list of dictionaries to JSON string.
-
-        Args:
-            list_dictionaries (list of dicts): List of dictionaries.
-
-        Returns:
-            str: JSON string representation of the list of dictionaries.
+    def to_json_string(list_dictionaries):
         """
-        return json.dumps(list_dictionaries) if list_dictionaries else "[]"
+        serialize a list of dictionaries to JSON string
+        Args:
+            list_dictionaries: (list) list of dictionaries
+        Returns:
+            JSON string of the list of dictionaries
+        """
+        return json.dumps(list_dictionaries) if list_dictionaries else []
 
     @staticmethod
-    def from_json_string(json_string) -> any:
-        """Deserializes a JSON string to Python object.
-
+    def from_json_string(json_string):
+        """
+        deserialize JSON string from object
         Args:
-            json_string (JSON str): The JSON string to deserialize.
-
-        Returns:
-            any: A Python object.
+            json_string: json string of the object to deserialize
+        Returns: an object
         """
         return json.loads(json_string) if json_string else []
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Writes the JSON string representation of `list_objs` to a file.
-
-        Args:
-            list_objs (list of objs): List of objects to be written.
         """
-        filename = f"{cls.__name__}.json"
-        with open(filename, mode="w", encoding="utf-8") as json_file:
-            if not list_objs:
-                json_file.write(cls.to_json_string([]))
+        saves to file the JSON representation of `list_objs`
+        Args:
+            list_objs: (list) list of object to be written
+        Returns: nothing
+        """
+        # filename = "{}.json".format(cls.__name__)
+        # with open(filename, mode="w", encoding="utf-8") as json_file:
+        #     if not list_objs:
+        #         json_file.write(cls.to_json_string([]))
+        #     else:
+        #         dict_objs = [obj.to_dictionary() for obj in list_objs]
+        #         json_file.write(cls.to_json_string(dict_objs))
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as jsonfile:
+            if list_objs is None:
+                jsonfile.write("[]")
             else:
-                dict_objs = [obj.to_dictionary() for obj in list_objs]
-                json_file.write(cls.to_json_string(dict_objs))
+                list_dicts = [o.to_dictionary() for o in list_objs]
+                jsonfile.write(Base.to_json_string(list_dicts))
 
     @classmethod
     def create(cls, **dictionary):
-        """Creates an instance with all attributes set.
-
-        Args:
-            dictionary: Dictionary of arguments to be used to create instance.
-
-        Returns:
-            object: An instance of a class that inherits from this class.
         """
-
+        creates a new instance of the Base class with all attributes
+        Args:
+            **dictionary: (dict) dictionary of args to be used to
+            create object
+        Returns: an instance of this class to be inherited
+        """
+        dummy = None
         if cls.__name__ == "Rectangle":
             dummy = cls(8, 4)
 
@@ -81,13 +92,12 @@ class Base:
         return dummy
 
     @classmethod
-    def load_from_file(cls) -> list:
-        """Reads data from a JSON file and creates instances with the data.
-
-        Returns:
-            list: A list of instances created using the read data.
+    def load_from_file(cls):
         """
-        filename = f"{cls.__name__}.json"
+        reads JSON file and creates an instance of the data read.
+        Returns: a list of the data read from the JSON file
+        """
+        filename = "{}.json".format(cls.__name__)
         if not Path(filename).is_file():
             return []
 
@@ -97,13 +107,14 @@ class Base:
         return [cls.create(**instance) for instance in instances]
 
     @classmethod
-    def save_to_file_csv(cls, list_objs):
-        """Serializes a list of objects to a CSV file.
-
-        Args:
-            list_objs (list): List of objects whose data is to be saved to CSV.
+    def save_from_file_csv(cls, list_objs):
         """
-        filename = f"{cls.__name__}.csv"
+        saves serialized list of objects to a CSV file
+        Args:
+            list_objs: (list) list of objects to be saved to a CSV file
+        Returns: nothing
+        """
+        filename = "{}.csv".format(cls.__name__)
         with open(filename, mode="w", encoding="utf-8") as csv_file:
             if cls.__name__ == "Rectangle":
                 columns = ["id", "width", "height", "x", "y"]
@@ -114,14 +125,12 @@ class Base:
             writer.writerows([obj.to_dictionary() for obj in list_objs])
 
     @classmethod
-    def load_from_file_csv(cls) -> list:
-        """Deserializes a CSV file and uses the data to create new objects.
-
-        Returns:
-            list: List of objects created with the data read from the CSV.
+    def load_from_file_csv(cls):
         """
-        filename = f"{cls.__name__}.csv"
-
+        loads serialized list of objects from a CSV file
+        Returns: list of objects read from the CSV file
+        """
+        filename = "{}.csv".format(cls.__name__)
         if not Path(filename).is_file():
             return []
 
@@ -136,12 +145,15 @@ class Base:
                 {key: int(value) for key, value in row.items()}
                 for row in reader
             ]
-            return [cls.create(**(args)) for args in reader]
+            return [cls.create(**args) for args in reader]
 
     @staticmethod
     def draw(list_rectangles, list_squares):
         """
-        Draws a bunch of rectangles and squares graphically on screen.
+        Draws rectangles and squares graphically on screen.
+        Args:
+            list_rectangles: a list or rectangles
+            list_squares: a list of squares
         """
         with turtle.Screen() as screen:
             screen.setup(1200, 720)
