@@ -111,19 +111,18 @@ class Rectangle(Base):
         Displays the rectangle on the screen using `#` character
         Returns: nothing
         """
-        for i in range(self.__y):
-            print()
-        for j in range(self.__height):
-            print((" " * self.__x) + ("#" * self.__width))
+        print("\n" * self.__y +
+                      "\n".join(" " * self.__x + "#" * self.__width
+                                for i in range(self.__height)))
 
     def __str__(self):
         """
         Overrides the __str__ method
         returns: [Rectangle] (<id>) <x>/<y> - <width>/<height>
         """
-        return "[{}] ({}) {}/{} - {}/{}]".format(
-            self.__class__.__name__, self.id, self.__x, self.__y,
-            self.__width, self.__height)
+        return "[{:s}] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+                    self.__class__.__name__, self.id, self.__x, self.__y,
+                    self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """
