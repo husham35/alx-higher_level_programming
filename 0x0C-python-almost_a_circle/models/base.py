@@ -37,7 +37,7 @@ class Base:
         Returns:
             JSON string of the list of dictionaries
         """
-        return json.dumps(list_dictionaries) if list_dictionaries else []
+        return json.dumps(list_dictionaries) if list_dictionaries else "[]"
 
     @staticmethod
     def from_json_string(json_string):

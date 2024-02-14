@@ -34,7 +34,7 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string(self):
         """Test for the `to_json_string` method."""
-        self.assertEqual(Base.to_json_string([]), [])
+        self.assertEqual(Base.to_json_string([]), '[]')
         load_one = Base.to_json_string([{'id': 21, 'name': 'json'}])
         self.assertEqual(load_one, '[{"id": 21, "name": "json"}]')
         load_two = Base.to_json_string([
@@ -56,6 +56,8 @@ class TestBase(unittest.TestCase):
             {'id': 21, 'name': 'json'}, {'age': 25, 'class': 4}
         ])
         self.assertIsInstance(load_two, list)
+
+
 
 
 if __name__ == '__main__':
