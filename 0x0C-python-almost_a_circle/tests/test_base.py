@@ -3,6 +3,7 @@
 Unit Tests for Base class
 """
 
+import sys
 import unittest
 from models.base import Base
 
@@ -53,7 +54,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(load_two, [{'id': 21, 'name': 'json'},
                                {'age': 25, 'class': 4}])
         self.assertIsInstance(load_two, list)
-
 
 if __name__ == '__main__':
     unittest.main()
