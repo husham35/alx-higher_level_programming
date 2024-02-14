@@ -37,8 +37,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.to_json_string([]), [])
         load_one = Base.to_json_string([{'id': 21, 'name': 'json'}])
         self.assertEqual(load_one, '[{"id": 21, "name": "json"}]')
-        load_two = Base.to_json_string([{'id': 21, 'name': 'json'},
-                                   {'age': 25, 'class': 4}])
+        load_two = Base.to_json_string([
+            {'id': 21, 'name': 'json'}, {'age': 25, 'class': 4}
+        ])
         self.assertEqual(load_two, '[{"id": 21, "name": "json"}, '
                          '{"age": 25, "class": 4}]')
         self.assertIsInstance(load_two, str)
@@ -50,10 +51,12 @@ class TestBase(unittest.TestCase):
         load_one = Base.from_json_string('[{"id": 21, "name": "json"}]')
         self.assertEqual(load_one, [{'id': 21, 'name': 'json'}])
         load_two = Base.from_json_string('[{"id": 21, "name": "json"}, '
-                                    '{"age": 25, "class": 4}]')
-        self.assertEqual(load_two, [{'id': 21, 'name': 'json'},
-                               {'age': 25, 'class': 4}])
+                                         '{"age": 25, "class": 4}]')
+        self.assertEqual(load_two, [
+            {'id': 21, 'name': 'json'}, {'age': 25, 'class': 4}
+        ])
         self.assertIsInstance(load_two, list)
+
 
 if __name__ == '__main__':
     unittest.main()
