@@ -12,46 +12,46 @@ from models.square import Square
 class TestSquare(unittest.TestCase):
     """Unit tests for the Square class."""
 
-    def test_two_valid_args(self):
+    def test_with_two_valid_args(self):
         """Test for instance with size and x values."""
         square = Square(1, 4)
         self.assertEqual(square.size, 1)
         self.assertEqual(square.x, 4)
         self.assertEqual(square.y, 0)
 
-    def test_three_valid_args(self):
+    def test_with_three_valid_args(self):
         """Test for instance with size, x and y values."""
         square = Square(1, 3, 8)
         self.assertEqual(square.size, 1)
         self.assertEqual(square.x, 3)
         self.assertEqual(square.y, 8)
 
-    def test_size_init_string_size(self):
+    def test_size_init_str_size(self):
         """Test for instance with invalid string argument."""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square("5")
 
-    def test_size_init_string_x(self):
+    def test_size_init_str_x(self):
         """Test for instance with invalid string argument for `x`."""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(4, "1")
 
-    def test_size_init_string_y(self):
+    def test_size_init_str_y(self):
         """Test for instance with invalid string argument for `y`."""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Square(5, 1, "1")
 
-    def test_size_init_negative_size(self):
+    def test_size_init_neg_size(self):
         """Test for an instance with negative argument for `size`."""
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-2)
 
-    def test_size_init_negative_x(self):
+    def test_size_init_neg_x(self):
         """Test for an instance with negative argument for `x`."""
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Square(3, -4)
 
-    def test_size_init_negative_y(self):
+    def test_size_init_neg_y(self):
         """Test for an instance with negative argument for `y`."""
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Square(4, 5, -6)
@@ -78,55 +78,55 @@ class TestSquare(unittest.TestCase):
         square.size = 8
         self.assertEqual(square.size, 8)
 
-    def test_string(self):
+    def test_with_string(self):
         """Test for setting size with a string value."""
         square = Square(4)
         with self.assertRaises(TypeError):
             square.size = "Hello"
 
-    def test_negative(self):
+    def test_with_negative(self):
         """Test for setting size with a negative value."""
         square = Square(5)
         with self.assertRaises(ValueError):
             square.size = -9
 
-    def test_zero(self):
+    def test_with_zero(self):
         """Test for setting size with zero."""
         square = Square(7)
         with self.assertRaises(ValueError):
             square.size = 0
 
-    def test_decimal(self):
+    def test_with_decimal(self):
         """Test for setting size with a decimal value."""
         square = Square(8)
         with self.assertRaises(TypeError):
             square.size = 4.3
 
-    def test_tuple(self):
+    def test_with_tuple(self):
         """Test for setting size with a tuple value."""
         square = Square(7)
         with self.assertRaises(TypeError):
             square.size = (1, 2)
 
-    def test_empty(self):
+    def test_with_empty(self):
         """Test for setting size with an empty value."""
         square = Square(9)
         with self.assertRaises(TypeError):
             square.size = ""
 
-    def test_none(self):
+    def test_with_none(self):
         """Test for setting size with None."""
         square = Square(3)
         with self.assertRaises(TypeError):
             square.size = None
 
-    def test_list(self):
+    def test_with_list(self):
         """Test for setting size with a list value."""
         square = Square(1)
         with self.assertRaises(TypeError):
             square.size = [3, 4]
 
-    def test_dict(self):
+    def test_with_dict(self):
         """Test for setting size with a dictionary value."""
         square = Square(2)
         with self.assertRaises(TypeError):
