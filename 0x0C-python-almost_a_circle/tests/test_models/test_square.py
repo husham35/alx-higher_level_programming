@@ -165,7 +165,7 @@ class TestSquareCreate(unittest.TestCase):
     with the attributes updated.
     """
 
-    def test_square_create_1_arg(self):
+    def test_create_with_1_arg(self):
         """
         Test for `create` method to return an object with
         one attribute updated.
@@ -173,7 +173,7 @@ class TestSquareCreate(unittest.TestCase):
         sqr = Square.create(**{"id": 6})
         self.assertEqual(sqr.id, 6)
 
-    def test_square_create_2_args(self):
+    def test_create_with_2_args(self):
         """
         Test for `create` method to return an object with
         two attributes updated.
@@ -182,7 +182,7 @@ class TestSquareCreate(unittest.TestCase):
         self.assertEqual(sqr.id, 2)
         self.assertEqual(sqr.size, 3)
 
-    def test_square_create_3_args(self):
+    def test_create_with_3_args(self):
         """
         Test for `create` method to return an object with
         three attributes updated.
@@ -192,7 +192,7 @@ class TestSquareCreate(unittest.TestCase):
         self.assertEqual(sqr.size, 5)
         self.assertEqual(sqr.x, 6)
 
-    def test_square_create_4_args(self):
+    def test_create_with_4_args(self):
         """
         Test for `create` method to return an object with
         four attributes updated.
@@ -209,7 +209,7 @@ class TestSquareSaveToFile(unittest.TestCase):
     Test for the `save_to_file` method of.
     """
 
-    def test_square_save_to_file_none(self):
+    def test_save_to_file_none(self):
         """
         Test for the `save_to_file` method with default.
         """
@@ -217,7 +217,7 @@ class TestSquareSaveToFile(unittest.TestCase):
         objs = Square.load_from_file()
         self.assertEqual(len(objs), 0)
 
-    def test_square_save_to_file_empty_list(self):
+    def test_save_to_file_empty_list(self):
         """
         Test for the `save_to_file` method with nothing.
         """
@@ -226,7 +226,7 @@ class TestSquareSaveToFile(unittest.TestCase):
         self.assertEqual(len(objs), 0)
         self.assertIsInstance(objs, list)
 
-    def test_square_save_to_file_list(self):
+    def test_save_to_file_list(self):
         """
         Test for the `save_to_file` method with a list.
         """
@@ -250,14 +250,14 @@ class TestSquareLoadFromFile(unittest.TestCase):
         if Path("Square.json").is_file():
             Path("Square.json").unlink()
 
-    def test_square_load_from_file_no_file(self):
+    def test_load_from_file_no_file(self):
         """
         Test for `load_from_file` method with missing Square.json file.
         """
         self.assertFalse(Path("Square.json").is_file())
         self.assertEqual(Square.load_from_file(), [])
 
-    def test_square_load_from_existing_file(self):
+    def test_load_from_existing_file(self):
         """
         Test for `load_from_file` method with existing Square.json file.
         """
