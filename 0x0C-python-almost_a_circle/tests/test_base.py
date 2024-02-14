@@ -58,7 +58,5 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(load_two, list)
 
 
-
-
 if __name__ == '__main__':
     unittest.main()
