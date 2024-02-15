@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Test suite for square.py `class Square` module
+Unittest suites for square.py `class Square` module
 """
 import unittest
 from pathlib import Path

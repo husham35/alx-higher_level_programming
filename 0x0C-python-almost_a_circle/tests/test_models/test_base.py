@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Unit Tests for Base class
+Unit Tests suites for Base class
 """
 
 import sys

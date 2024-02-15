@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Square model
+Square class model
 """
 from models.rectangle import Rectangle
 
