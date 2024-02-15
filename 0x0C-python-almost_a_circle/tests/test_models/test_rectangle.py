@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Test suite for rectangle.py `class Rectangle` module
+Unittest suite for rectangle.py `class Rectangle` module
 """
 
 import io
