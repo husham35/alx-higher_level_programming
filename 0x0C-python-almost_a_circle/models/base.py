@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Base class to handle"""
-
+"""Base class for all the other classes to inherit from"""
+import turtle
 import csv
 import json
-import turtle
+import tkinter as TK
+import _tkinter
 from pathlib import Path
 
 
