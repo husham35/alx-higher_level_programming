@@ -6,6 +6,20 @@ from models.base import Base
 class Rectangle(Base):
     """
     Rectangle class definition that represents a rectangle
+    Inherited Attributes:
+        id
+    Class Attributes:
+        __width          __height
+        __x              __y
+    Methods:
+        __init__(self, width, height, x=0, y=0, id=None):
+        update(self, *args, **kwargs)
+        width(self)      width(self, value)
+        height(self)     height(self, value)
+        x(self)          x(self, value)
+        y(self)          y(self, value)
+        area(self)       display(self)
+        __str__          to_dictionary(self)
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -17,6 +31,11 @@ class Rectangle(Base):
             x: (int) x coordinate of the rectangle
             y: (int) y coordinate of the rectangle
             id: (int) unique id of the rectangle
+        Raises:
+            TypeError: If either of width or height is not an int.
+            ValueError: If either of width or height <= 0.
+            TypeError: If either of x or y is not an int.
+            ValueError: If either of x or y < 0.
         """
         self.validate_attribute('width', width)
         self.validate_attribute('height', height)
@@ -111,10 +130,6 @@ class Rectangle(Base):
         Displays the rectangle on the screen using `#` character
         Returns: nothing
         """
-        # print("\n" * self.__y +
-        #               "\n".join(" " * self.__x + "#" * self.__width
-        #                         for i in range(self.__height)))
-        #
         if self.width == 0 or self.height == 0:
             print("")
             return

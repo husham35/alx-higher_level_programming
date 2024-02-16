@@ -8,6 +8,21 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     """
     Square class represents a square
+    Inherited Attributes:
+        id
+        __weight        __height
+        __x             __y
+    Class Attributes:
+        size
+    Inherted Methods:
+        Base.init(self, id=None)
+        Rectangle.init(self, width, height, x=0, y=0, id=None)
+        update(self, *args, **kwargs)
+        width(self)      width(self, value)
+        height(self)     height(self, value)
+        x(self)          x(self, value)
+        y(self)          y(self, value)
+        area(self)       display(self)
     """
     def __init__(self, size, x=0, y=0, id=None):
         """
