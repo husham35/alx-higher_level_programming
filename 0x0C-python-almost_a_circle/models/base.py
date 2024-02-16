@@ -83,13 +83,20 @@ class Base:
             create object
         Returns: an instance of this class to be inherited
         """
-        dummy = None
-        if cls.__name__ == "Rectangle":
-            dummy = cls(8, 4)
+        # dummy = None
+        # if cls.__name__ == "Rectangle":
+        #     dummy = cls(8, 4)
 
+        # if cls.__name__ == "Square":
+        #     dummy = cls(7)
+
+        # dummy.update(**dictionary)
+        # return dummy
+        #
         if cls.__name__ == "Square":
-            dummy = cls(7)
-
+            dummy = cls(1)
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
 
