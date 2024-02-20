@@ -27,8 +27,10 @@ class Base:
 
     def __init__(self, id=None):
         """
-        Initializes the Base class, sets `id` and increments attribute if no
-        `id` is set
+        Initializes the Base class, this class will be the “base”
+        of all other classes in this project. The goal of it is to
+        manage id attribute in all your future classes and to avoid
+        duplicating the same code (by extension, same bugs)
         Args:
             id (int): id of the objects of this class
         """
