@@ -17,7 +17,14 @@ class Square extends baseSquare {
         console.log(row);
       }
     } else {
-      this.print();
+    //   this.print();
+      for (let i = 0; i < this.height; i++) {
+        let row = '';
+        for (let j = 0; j < this.width; j++) {
+          row += 'C';
+        }
+        console.log(row);
+      }
     }
   }
 }
