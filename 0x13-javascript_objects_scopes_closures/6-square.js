@@ -8,7 +8,7 @@ class Square extends baseSquare {
   }
 
   charPrint (c) {
-    if (c) {
+    if (c != null) {
       for (let i = 0; i < this.height; i++) {
         let row = '';
         for (let j = 0; j < this.width; j++) {
@@ -17,14 +17,7 @@ class Square extends baseSquare {
         console.log(row);
       }
     } else {
-    //   this.print();
-      for (let i = 0; i < this.height; i++) {
-        let row = '';
-        for (let j = 0; j < this.width; j++) {
-          row += 'C';
-        }
-        console.log(row);
-      }
+      this.print();
     }
   }
 }
