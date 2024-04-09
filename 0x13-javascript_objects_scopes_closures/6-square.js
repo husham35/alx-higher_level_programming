@@ -7,17 +7,13 @@ class Square extends baseSquare {
     super(size, size);
   }
 
-  charPrint (c) {
-    if (c != null) {
-      for (let i = 0; i < this.height; i++) {
-        let row = '';
-        for (let j = 0; j < this.width; j++) {
-          row += 'C';
-        }
-        console.log(row);
+  charPrint (c = 'X') {
+    for (let i = 0; i < this.height; i++) {
+      let row = '';
+      for (let j = 0; j < this.width; j++) {
+        row += c;
       }
-    } else {
-      this.print();
+      console.log(row);
     }
   }
 }
