@@ -9,12 +9,12 @@ import MySQLdb
 
 
 if __name__ == "__main__":
-    username = str(sys.argv[1])
-    password = str(sys.argv[2])
-    db_name = str(sys.argv[3])
-    host = "localhost"
-    port = 3306
-    query = """
+    username: str = sys.argv[1]
+    password: str = sys.argv[2]
+    db_name: str = sys.argv[3]
+    host: str = "localhost"
+    port: int = 3306
+    statement: str = """
     SELECT *
     FROM states
     WHERE BINARY name LIKE 'N%'
@@ -30,11 +30,10 @@ if __name__ == "__main__":
     )
     cursor = db.cursor()
 
-    cursor.execute(query)
-    filtered_rows = cursor.fetchall()
-    for row in filtered_rows:
+    cursor.execute(statement)
+    rows = cursor.fetchall()
+    for row in rows:
         print(row)
     
     cursor.close()
     db.close()
-
