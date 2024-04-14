@@ -27,13 +27,13 @@ if __name__ == "__main__":
         password=password,
         database=db_name,
     )
-    
+
     cursor = db.cursor()
 
     cursor.execute(statement)
     rows = cursor.fetchall()
     for row in rows:
         print(row)
-    
+
     cursor.close()
     db.close()
