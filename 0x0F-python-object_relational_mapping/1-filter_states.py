@@ -14,10 +14,8 @@ if __name__ == "__main__":
     host: str = "localhost"
     port: int = 3306
     statement: str = """
-    SELECT *
-    FROM states
-    WHERE BINARY name LIKE 'N%'
-    ORDER BY id
+    SELECT * FROM states
+    WHERE name LIKE BINARY 'N%' ORDER BY states.id
     """
 
     db = MySQLdb.connect(
