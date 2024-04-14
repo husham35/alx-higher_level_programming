@@ -34,3 +34,7 @@ if __name__ == "__main__":
     filtered_rows = cursor.fetchall()
     for row in filtered_rows:
         print(row)
+    
+    cursor.close()
+    db.close()
+
