@@ -9,9 +9,9 @@ import MySQLdb
 
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
+    username = str(sys.argv[1])
+    password = str(sys.argv[2])
+    db_name = str(sys.argv[3])
     host = "localhost"
     port = 3306
     query = """
