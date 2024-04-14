@@ -7,7 +7,6 @@ A script that lists all states from the
 import sys
 import MySQLdb
 
-
 if __name__ == "__main__":
     username: str = sys.argv[1]
     password: str = sys.argv[2]
@@ -28,6 +27,7 @@ if __name__ == "__main__":
         password=password,
         database=db_name,
     )
+    
     cursor = db.cursor()
 
     cursor.execute(statement)
