@@ -19,7 +19,7 @@ def find_peak(list_of_integers):
     if not list_of_integers:
         return None
 
-    # get length of the list 
+    # get length of the list
     list_len = len(list_of_integers)
     # Get the middle index
     mid = (list_len // 2) - 1 if list_len % 2 == 0 else list_len // 2
