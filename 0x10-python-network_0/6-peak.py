@@ -19,27 +19,42 @@ def find_peak(list_of_integers):
     if not list_of_integers:
         return None
 
-    # get length of the list
-    list_len = len(list_of_integers)
-    # Get the middle index
-    mid = (list_len // 2) - 1 if list_len % 2 == 0 else list_len // 2
+    # # get length of the list
+    # list_len = len(list_of_integers)
+    # # Get the middle index
+    # mid = (list_len // 2) - 1 if list_len % 2 == 0 else list_len // 2
 
-    if list_len == 1:
-        return list_of_integers[0]
+    # if list_len == 1:
+    #     return list_of_integers[0]
 
-    if list_len == 2:
-        return max(list_of_integers)
+    # if list_len == 2:
+    #     return max(list_of_integers)
 
-    # If the middle element is larget than the next element, return it
-    if (
-        list_of_integers[mid - 1]
-        <= list_of_integers[mid]
-        >= list_of_integers[mid + 1]
-    ):
-        return list_of_integers[mid]
+    # # If the middle element is larget than the next element, return it
+    # if (
+    #     list_of_integers[mid - 1]
+    #     <= list_of_integers[mid]
+    #     >= list_of_integers[mid + 1]
+    # ):
+    #     return list_of_integers[mid]
 
-    if mid > 0 and list_of_integers[mid] < list_of_integers[mid + 1]:
-        return find_peak(list_of_integers[mid:])
+    # if mid > 0 and list_of_integers[mid] < list_of_integers[mid + 1]:
+    #     return find_peak(list_of_integers[mid:])
 
-    if mid > 0 and list_of_integers[mid] < list_of_integers[mid - 1]:
-        return find_peak(list_of_integers[:mid])
+    # if mid > 0 and list_of_integers[mid] < list_of_integers[mid - 1]:
+    #     return find_peak(list_of_integers[:mid])
+    
+    low = 0
+    high = len(list_of_integers) - 1
+
+    while low < high:
+        mid = (low + high) // 2
+        # If the element to the right of mid is greater, search on the right
+        if list_of_integers[mid] < list_of_integers[mid + 1]:
+            low = mid + 1
+        # If the element to the left of mid is greater, search on the left
+        else:
+            high = mid
+
+    # At the end of the loop, low and high will converge to the peak element
+    return list_of_integers[low]
