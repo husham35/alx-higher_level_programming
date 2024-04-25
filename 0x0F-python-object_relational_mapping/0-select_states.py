@@ -6,6 +6,7 @@ A script that lists all states from the database `hbtn_0e_0_usa`
 import sys
 # import pymysql
 # pymysql.install_as_MySQLdb()
+# import mysql.connector as MySQLdb
 import MySQLdb
 
 
