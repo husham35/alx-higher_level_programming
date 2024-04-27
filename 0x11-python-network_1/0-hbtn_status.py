@@ -10,9 +10,10 @@ Python script that fetches `https://alx-intranet.hbtn.io/status`
 import urllib.request as req
 
 if __name__ == "__main__":
-    with req.urlopen("https://alx-intranet.hbtn.io/status") as response:
-        html = response.read()
+    _req = req.Request("https://alx-intranet.hbtn.io/status")
+    with req.urlopen(_req) as response:
+        html_body = response.read()
         print("Body response:")
-        print(f"\t- type: {type(html)}")
-        print(f"\t- content: {html}")
-        print(f"\t-  utf8 content: {html.decode('utf-8')}")
+        print(f"\t- type: {type(html_body)}")
+        print(f"\t- content: {html_body}")
+        print(f"\t-  utf8 content: {html_body.decode('utf-8')}")
