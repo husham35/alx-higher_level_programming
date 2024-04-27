@@ -15,12 +15,12 @@ import urllib.error as err
 
 
 if __name__ == "__main__":
-	URL = sys.argv[1]
+    URL = sys.argv[1]
 
-	_req = req.Request(url=URL)
-	try:
-		with req.urlopen(_req) as response:
-			body = response.read()
-			print(body.decode('utf-8'))
-	except err.HTTPError as _err:
-		print(f"Error code: {_err.code}")
+    _req = req.Request(url=URL)
+    try:
+        with req.urlopen(_req) as response:
+            body = response.read()
+            print(body.decode('utf-8'))
+    except err.HTTPError as _err:
+        print(f"Error code: {_err.code}")

@@ -15,12 +15,12 @@ import urllib.parse as par
 
 
 if __name__ == "__main__":
-	URL = sys.argv[1]
-	EMAIL = sys.argv[2]
-	vals = {'email': EMAIL}
+    URL = sys.argv[1]
+    EMAIL = sys.argv[2]
+    vals = {'email': EMAIL}
 
-	data = par.urlencode(vals).encode('ascii')
-	_req = req.Request(url=URL, data=data)
-	with req.urlopen(_req) as response:
-		body = response.read()
-		print(body.decode('utf-8'))
+    data = par.urlencode(vals).encode('ascii')
+    _req = req.Request(url=URL, data=data)
+    with req.urlopen(_req) as response:
+        body = response.read()
+        print(body.decode('utf-8'))

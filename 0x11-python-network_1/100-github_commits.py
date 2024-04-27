@@ -12,15 +12,15 @@ import requests
 
 
 if __name__ == "__main__":
-	REPO_NAME = sys.argv[1]
-	OWNER_NAME = sys.argv[2]
-	URL = f"https://api.github.com/repos/{OWNER_NAME}/{REPO_NAME}/commits"
+    REPO_NAME = sys.argv[1]
+    OWNER_NAME = sys.argv[2]
+    URL = f"https://api.github.com/repos/{OWNER_NAME}/{REPO_NAME}/commits"
 
-	response = requests.get(URL, timeout=5)
-	commits = response.json()
-	for index, commit in enumerate(commits):
-		if index == 10:
-			break
-		sha = commit.get("sha")
-		author =commit.get("commit").get("author").get("name")
-		print(f"{sha}: {author}")
+    response = requests.get(URL, timeout=5)
+    commits = response.json()
+    for index, commit in enumerate(commits):
+        if index == 10:
+            break
+        sha = commit.get("sha")
+        author = commit.get("commit").get("author").get("name")
+        print(f"{sha}: {author}")

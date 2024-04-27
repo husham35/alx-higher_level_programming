@@ -13,7 +13,7 @@ import urllib.request as req
 
 
 if __name__ == "__main__":
-	_req = req.Request(sys.argv[1])
-	with req.urlopen(_req) as response:
-		res = response.info()
-		print(res.get('X-Request-Id'))
+    _req = req.Request(sys.argv[1])
+    with req.urlopen(_req) as response:
+        res = response.info()
+        print(res.get('X-Request-Id'))
