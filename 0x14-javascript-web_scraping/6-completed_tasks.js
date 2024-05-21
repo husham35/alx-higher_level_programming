@@ -3,38 +3,22 @@
 
 const request = require('request');
 
-// API URL
-const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
-
 // a GET request to the API
-request.get(apiUrl, (error, response, body) => {
-  if (error) {
-    console.error('Error making the request:', error);
-    process.exit(1);
-  }
+const apiUrl = process.argv[2];
 
-  try {
-    // pars the JSON response
+request(apiUrl, (err, response, body) => {
+  if (!err) {
     const todos = JSON.parse(body);
-
-    const completedTasksByUser = {};
-
-    // filster and count completed tasks
-    todos.forEach((todo) => {
+    const completedTasks = {};
+    for (const todo of todos) {
       if (todo.completed) {
-        if (!completedTasksByUser[todo.userId]) {
-          completedTasksByUser[todo.userId] = 1;
+        if (!completedTasks[todo.userId]) {
+          completedTasks[todo.userId] = 1;
         } else {
-          completedTasksByUser[todo.userId]++;
+          completedTasks[todo.userId]++;
         }
       }
-    });
-
-    // Print the number of completed tasks by each user
-    console.log(completedTasksByUser);
-	
-  } catch (parseError) {
-    console.error('Error parsing JSON response:', parseError);
-    process.exit(1);
+    }
+    console.log(completedTasks);
   }
 });
