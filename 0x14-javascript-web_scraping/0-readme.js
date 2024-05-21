@@ -1,10 +1,5 @@
 #!/usr/bin/node
-/**
- * A script that reads and prints the content of a file.
- *  - The first argument is the file path
- *  - The content of the file must be read in utf-8
- *  - If an error occurred during the reading, print the error object
- */
+// A script that reads and prints the content of a file.
 
 const fs = require('fs');
 
@@ -15,10 +10,10 @@ if (process.argv.length < 3) {
 }
 
 // get the full file path
-const file_path = process.argv[2];
+const filePath = process.argv[2];
 
 // read and print the files content
-fs.readFile(file_path, 'utf-8', (err, data) => {
+fs.readFile(filePath, 'utf-8', (err, data) => {
   if (err) {
     console.error(err);
   } else {
